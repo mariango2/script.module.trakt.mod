@@ -197,6 +197,9 @@ class Show(Media):
             result['votes'] = self.rating.votes
             result['rated_at'] = to_iso8601_datetime(self.rating.timestamp)
 
+        if self.reset_at:
+            result['reset_at'] = to_iso8601_datetime(self.reset_at)
+
         # Extended Info
         if self.first_aired:
             result['first_aired'] = to_iso8601_datetime(self.first_aired)
@@ -281,6 +284,9 @@ class Show(Media):
 
         if 'updated_at' in info:
             self.updated_at = from_iso8601_datetime(info.get('updated_at'))
+
+        if 'reset_at' in info:
+            self.reset_at = from_iso8601_datetime(info.get('reset_at'))
 
     @classmethod
     def _construct(cls, client, keys, info=None, index=None, **kwargs):
