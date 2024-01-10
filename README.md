@@ -1,4 +1,4 @@
-script.module.trakt
+script.module.trakt.mod
 ======================
 
 Python trakt.py library packed for Kodi.
